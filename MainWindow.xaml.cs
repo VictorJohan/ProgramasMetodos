@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ProgramasMetodos.Clases;
+using ProgramasMetodos.UI;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +25,13 @@ namespace ProgramasMetodos
         public MainWindow()
         {
             InitializeComponent();
+            
+        }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            rBiseccion biseccion = new rBiseccion();
+            biseccion.Show();
         }
     }
 }
