@@ -25,13 +25,19 @@ namespace ProgramasMetodos
         public MainWindow()
         {
             InitializeComponent();
-            
+            MetodosNumericos.Factorial(5);
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
             rBiseccion biseccion = new rBiseccion();
             biseccion.Show();
+        }
+
+        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
+        {
+            rTaylor rTaylor = new rTaylor();
+            rTaylor.Show();
         }
     }
 }

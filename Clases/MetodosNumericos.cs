@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Text;
+using System.Windows;
 
 namespace ProgramasMetodos.Clases
 {
@@ -22,6 +23,7 @@ namespace ProgramasMetodos.Clases
             return resultado;
         }
 
+        //Metodo de Biseccion
         public static List<BiseccionObj> Biseccion(BiseccionObj biseccion)
         {
             List<BiseccionObj> lista = new List<BiseccionObj>();
@@ -63,6 +65,7 @@ namespace ProgramasMetodos.Clases
             return lista;
         }
 
+        //Determina el error aproximado del metodo de biseccion
         private static double ErrorAproximado(List<BiseccionObj> lista)
         {
             int elemento = lista.Count;
@@ -70,5 +73,38 @@ namespace ProgramasMetodos.Clases
             Error = Math.Abs(((lista[elemento - 1].Xr - lista[elemento - 2].Xr) / lista[elemento - 1].Xr) * 100);
             return Error;
         }
+    
+        public static List<TaylorObj> SerieTaylor(TaylorObj taylor)
+        {
+            List<TaylorObj> lista = new List<TaylorObj>();
+            TaylorObj aux = new TaylorObj();
+            int iterador = taylor.Iteracion;
+            for(int i = 0; i < iterador; i++)
+            {
+                taylor.ValorT = Math.Pow(taylor.ValorX, i) / Factorial(i);
+                taylor.Iteracion = i;
+                aux.ValorT = taylor.ValorT;
+                aux.Iteracion = taylor.Iteracion;
+                aux.ValorX = taylor.ValorX;
+                lista.Add(aux);
+                aux = new TaylorObj();
+                
+            }
+
+            return lista;
+        }
+
+        public static int Factorial(int valorI)
+        {
+            int fac = 1;
+
+            for (int i = 1; i <= valorI; i++)
+            {
+                fac *= i;
+            }
+
+            return fac;
+        }
+        
     }
 }

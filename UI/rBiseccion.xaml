@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProgramasMetodos.UI"
         mc:Ignorable="d"
-        Title="rBiseccion" Height="480" Width="900" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
+        Title="Metodo Biseccion" Height="480" Width="900" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
     <Grid>
         <StackPanel Orientation="Vertical" Margin="10,10,10,10">
             <Label Content="Intervalo" FontSize="12" FontWeight="Bold"/>
