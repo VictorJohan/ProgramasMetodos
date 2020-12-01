@@ -39,5 +39,11 @@ namespace ProgramasMetodos
             rTaylor rTaylor = new rTaylor();
             rTaylor.Show();
         }
+
+        private void MenuItem_Click_2(object sender, RoutedEventArgs e)
+        {
+            rPosicion rPosicion = new rPosicion();
+            rPosicion.Show();
+        }
     }
 }

@@ -45,11 +45,9 @@ namespace ProgramasMetodos.Clases
                 biseccion = new BiseccionObj();
                 if (lista.Count > 1)
                 {
-                    lista[lista.Count - 1].Ea = ErrorAproximado(lista);
+                    lista[lista.Count - 1].Ea = ErrorAproximado(lista[lista.Count - 1].Xr, lista[lista.Count - 2].Xr);
                 }
                 biseccion.FxaFxr = aux.FxaFxr;
-
-                
 
                 if (biseccion.FxaFxr < 0)
                     biseccion.Xa = aux.Xa;
@@ -65,15 +63,15 @@ namespace ProgramasMetodos.Clases
             return lista;
         }
 
-        //Determina el error aproximado del metodo de biseccion
-        private static double ErrorAproximado(List<BiseccionObj> lista)
+        //Determina el error aproximado del metodo de biseccion y posicion falsa
+        private static double ErrorAproximado(double Xr1, double Xr2)
         {
-            int elemento = lista.Count;
             double Error;
-            Error = Math.Abs(((lista[elemento - 1].Xr - lista[elemento - 2].Xr) / lista[elemento - 1].Xr) * 100);
+            Error = Math.Abs(((Xr1 - Xr2) / Xr1) * 100);
             return Error;
         }
     
+        //Serie de Taylor
         public static List<TaylorObj> SerieTaylor(TaylorObj taylor)
         {
             List<TaylorObj> lista = new List<TaylorObj>();
@@ -94,6 +92,7 @@ namespace ProgramasMetodos.Clases
             return lista;
         }
 
+        //Calcua el factorial de un numero.
         public static int Factorial(int valorI)
         {
             int fac = 1;
@@ -106,5 +105,46 @@ namespace ProgramasMetodos.Clases
             return fac;
         }
         
+        public static List<PosicionFalsaObj> PosicionFalsa(PosicionFalsaObj posicion)
+        {
+            List<PosicionFalsaObj> lista = new List<PosicionFalsaObj>();
+            PosicionFalsaObj aux = new PosicionFalsaObj();
+            int iteracion = posicion.Iteracion;
+
+            for (int i = 1; i <= iteracion; i++)
+            {
+                posicion.Fxa = ((Math.PI * 1 - Math.Exp(-posicion.Xa)) / posicion.Xa) - 0.5;//ojo con el exp
+                posicion.Fxb = ((Math.PI * 1 - Math.Exp(-posicion.Xb)) / posicion.Xb) - 0.5;
+                posicion.Xr = posicion.Xb - ((posicion.Fxb * (posicion.Xb - posicion.Xa)) / (posicion.Fxb - posicion.Fxa));
+                posicion.Fxr = ((Math.PI * 1 - Math.Exp(-posicion.Xr)) / posicion.Xr) - 0.5;
+                posicion.FxaFxr = posicion.Fxa * posicion.Fxr;
+                posicion.Iteracion = i;
+                aux = posicion;
+                lista.Add(aux);
+                posicion = new PosicionFalsaObj();
+
+                if (lista.Count > 1)
+                {
+                    lista[lista.Count - 1].Ea = ErrorAproximado(lista[lista.Count - 1].Xr, lista[lista.Count - 2].Xr);
+                }
+
+                posicion.FxaFxr = aux.FxaFxr;
+
+                if (aux.FxaFxr < 0)
+                    posicion.Xa = aux.Xa;
+                else
+                    posicion.Xa = aux.Xr;
+
+                if (posicion.FxaFxr > 0)
+                    posicion.Xb = aux.Xb;
+                else
+                    posicion.Xb = aux.Xr;
+            }
+
+            return lista;
+        }
+
+        
+    
     }
 }
