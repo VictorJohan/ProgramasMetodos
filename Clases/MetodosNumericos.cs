@@ -105,6 +105,7 @@ namespace ProgramasMetodos.Clases
             return fac;
         }
         
+        //Metodo de la posicion falsa o Interpolacion
         public static List<PosicionFalsaObj> PosicionFalsa(PosicionFalsaObj posicion)
         {
             List<PosicionFalsaObj> lista = new List<PosicionFalsaObj>();
@@ -144,7 +145,38 @@ namespace ProgramasMetodos.Clases
             return lista;
         }
 
-        
+        public static List<BrentObj> Brent(BrentObj brent)
+        {
+            List<BrentObj> lista = new List<BrentObj>();
+            BrentObj aux = new BrentObj();
+            int iterador = brent.Iteracion;
+
+            for (int i = 1; i <= iterador; i++)
+            {
+                brent.Iteracion = i;
+                brent.C0 = brent.A + brent.B / 2;
+                brent.Fa = (2 * brent.A) - 3;
+                brent.Fb = (2 * brent.B) - 3;
+                brent.Fc0 = i >= 2 ? (2 * brent.C0) - 3 : (2 * 0) - 3;
+                brent.F = brent.Fc0 / brent.Fb;
+                brent.G = brent.Fc0 / brent.Fa;
+                brent.H = brent.Fa / brent.Fb;
+                brent.C1 = brent.G * (brent.H * (brent.F - brent.H) * (brent.B - brent.C0) - (1 - brent.F) *
+                    (brent.B - brent.A)) / (brent.F - 1) * (brent.G - 1) * (brent.H - 1);
+                aux = brent;
+
+                lista.Add(aux);
+                brent = new BrentObj();
+
+                brent.A = i >= 3 ? aux.C1 : aux.A;
+                brent.B = aux.B;
+
+
+            }
+          
+            
+            return lista;
+        }
     
     }
 }

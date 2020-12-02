@@ -12,6 +12,7 @@
                 <MenuItem Header="Biseccion" Click="MenuItem_Click"/>
                 <MenuItem Header="Serie de Taylor" Click="MenuItem_Click_1"/>
                 <MenuItem Header="Posicion Falsa" Click="MenuItem_Click_2"/>
+                <MenuItem Header="Metodo de Brent" Click="MenuItem_Click_3"/>
             </MenuItem>
         </Menu>
     </Grid>

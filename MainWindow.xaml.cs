@@ -45,5 +45,11 @@ namespace ProgramasMetodos
             rPosicion rPosicion = new rPosicion();
             rPosicion.Show();
         }
+
+        private void MenuItem_Click_3(object sender, RoutedEventArgs e)
+        {
+            rBrent rBrent = new rBrent();
+            rBrent.Show();
+        }
     }
 }
