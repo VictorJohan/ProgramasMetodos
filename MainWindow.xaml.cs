@@ -51,5 +51,17 @@ namespace ProgramasMetodos
             rBrent rBrent = new rBrent();
             rBrent.Show();
         }
+
+        private void MenuItem_Click_4(object sender, RoutedEventArgs e)
+        {
+            rNewtonR rNewtonR = new rNewtonR();
+            rNewtonR.Show();
+        }
+
+        private void MenuItem_Click_5(object sender, RoutedEventArgs e)
+        {
+            rSecante rSecante = new rSecante();
+            rSecante.Show();
+        }
     }
 }

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProgramasMetodos"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
+        Title="Metodos Numericos" Height="450" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
     <Grid>
         <Menu Height="20" VerticalAlignment="Top">
             <MenuItem Header="Metodos">
@@ -13,7 +13,37 @@
                 <MenuItem Header="Serie de Taylor" Click="MenuItem_Click_1"/>
                 <MenuItem Header="Posicion Falsa" Click="MenuItem_Click_2"/>
                 <MenuItem Header="Metodo de Brent" Click="MenuItem_Click_3"/>
+                <MenuItem Header="Metodo Newton Raphson" Click="MenuItem_Click_4"/>
+                <MenuItem Header="Metodo de la Secante" Click="MenuItem_Click_5"/>
             </MenuItem>
         </Menu>
+        <StackPanel Orientation="Vertical" Margin="10,10,10,10">
+           
+            <StackPanel Width="200" Height="200" Margin="0,20">
+                <Image Source="/Resources/Ucne.jpg" Stretch="Uniform"/>
+            </StackPanel>
+            
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Nombre:" FontSize="23" FontWeight="Bold"/>
+                    <Label Content="Victor Johan Palma Rodriguez" FontSize="23" FontStyle="Italic"/>
+                </StackPanel>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Matricula:" FontSize="23" FontWeight="Bold"/>
+                    <Label Content="2017-0923" FontSize="23" FontStyle="Italic"/>
+                </StackPanel>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Profesor:" FontSize="23" FontWeight="Bold"/>
+                    <Label Content="Juan José Bello Francisco" FontSize="23" FontStyle="Italic"/>
+                </StackPanel>
+            </StackPanel>
+
+        </StackPanel>
     </Grid>
 </Window>
